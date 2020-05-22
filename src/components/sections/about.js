@@ -68,16 +68,16 @@ const About = ({ content }) => {
   const tRef = useRef()
   const tOnScreen = useOnScreen(tRef)
   const tVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20, transition: { delay: 0.1, duration: 0.1 } },
+    visible: { opacity: 1, y: 0, transition: { delay: 0.1, duration: 0.1 } }
   }
 
   // Required for animating the image
   const iRef = useRef()
   const iOnScreen = useOnScreen(iRef)
   const iVariants = {
-    hidden: { opacity: 0, x: 20 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 20, transition: { delay: 0.1, duration: 0.4 } },
+    visible: { opacity: 1, x: 0, transition: { delay: 0.1 , duration: 0.4} },
   }
 
   return (

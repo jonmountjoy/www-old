@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const Medium = ({ color }) => {
+const Blog = ({ color }) => {
   return (
     <svg
       version="1.1"
@@ -21,12 +21,12 @@ const Medium = ({ color }) => {
   )
 }
 
-Medium.propTypes = {
+Blog.propTypes = {
   color: PropTypes.string,
 }
 
-Medium.defaultProps = {
+Blog.defaultProps = {
   color: "#000000",
 }
 
-export default Medium
+export default Blog

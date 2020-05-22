@@ -5,7 +5,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/sections/hero"
-import Articles from "../components/sections/articles" 
+import Blog from "../components/sections/blog" 
+import Photos from "../components/sections/photos" 
 import About from "../components/sections/about"
 import Interests from "../components/sections/interests"
 import Projects from "../components/sections/projects"
@@ -14,13 +15,14 @@ import { splashScreen } from "../config"
 
 const IndexPage = ({ data }) => (
   <Layout splashScreen={splashScreen}>
-    <SEO title="Portfolio Minimal - A Gatsby Starter." />
+    <SEO title="Jon Mountjoy" description="Jon's home, describing his work, interests, and other homes on the internet." />
     <Hero content={data.hero.edges} />
     {/* Articles is populated via Medium RSS Feed fetch */}
-    <Articles />
-    <About content={data.about.edges} />
-    <Interests content={data.interests.edges} />
-    <Projects content={data.projects.edges} />
+    <Blog />
+    <Photos />
+    {/* <About content={data.about.edges} /> */}
+    {/* <Interests content={data.interests.edges} /> */}
+    {/* <Projects content={data.projects.edges} /> */}
     <Contact content={data.contact.edges} />
   </Layout>
 )
@@ -38,17 +40,24 @@ export const pageQuery = graphql`
       node {
         body
         frontmatter {
-          greetings
+          # greetings
           title
-          subtitlePrefix
-          subtitle
-          icon {
+          image {
             childImageSharp {
-              fluid(maxWidth: 60, quality: 90) {
+              fluid(maxWidth: 400, quality: 90) {
                 ...GatsbyImageSharpFluid
               }
             }
           }
+          # subtitlePrefix
+          # subtitle
+          # icon {
+          #  childImageSharp {
+          #    fluid(maxWidth: 60, quality: 90) {
+          #      ...GatsbyImageSharpFluid
+          #    }
+          #  }
+          # }
         }
       }
     }
@@ -126,13 +135,6 @@ export const pageQuery = graphql`
           title
           name
           email
-          profileImage {
-            childImageSharp {
-              fluid(maxWidth: 400, quality: 90) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
         }
       }
     }

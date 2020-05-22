@@ -8,6 +8,7 @@ import config from "../../config"
 import { parseDate } from "../../utils"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
+import Theme from "../../styles/Theme";
 
 const { mediumRssFeed, shownArticles } = config
 
@@ -112,7 +113,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
   }
 `
 
-const Articles = () => {
+const Photos = () => {
   // shownArticles is set in config.js, due to the rss feed loader
   // it is currently limited to max 3
   const MAX_ARTICLES = shownArticles
@@ -125,13 +126,15 @@ const Articles = () => {
   useEffect(() => {
     const loadArticles = async () => {
       if (isIntroDone) {
-        await articlesControls.start({ opacity: 1, y: 0, transition: { delay: 1 } })
+        await articlesControls.start({ opacity: 1, y: 0, transition: { delay: 0.1 } })
+
+        // Feed also contains comments, therefore we filter for articles only
+        // .then(data => data.items.filter(item => item.categories.length > 0))
+
         // MediumRssFeed is set in config.js
         fetch(mediumRssFeed, { headers: { Accept: "application/json" } })
         .then(res => res.json())
-        // Feed also contains comments, therefore we filter for articles only
-        .then(data => data.items.filter(item => item.categories.length > 0))
-        .then(newArticles => newArticles.slice(0, MAX_ARTICLES))
+        .then(newArticles => newArticles.items.slice(0, MAX_ARTICLES))
         .then(articles => setArticles(articles))
         .catch(error => console.log(error))
       }
@@ -141,12 +144,12 @@ const Articles = () => {
 
   return (
     <StyledSection
-      id="articles"
+      id="photos"
       initial={{ opacity: 0, y: 20 }}
       animate={articlesControls}
     >
       <StyledContentWrapper>
-        <h3 className="section-title">Latest Articles on Medium</h3>
+        <h3 className="section-title">Photos</h3>
         <div className="articles">
           {articles
             ? articles.map(item => (
@@ -189,9 +192,10 @@ const Articles = () => {
               </div>
             ))}
         </div>
+        <a href="https://photos.jonmountjoy.com/" target="_blank" rel="noopener" aria-label="External Link"><Underlining color={Theme.colors.secondary} hoverColor={Theme.colors.secondary}>Visit the photo galleries ></Underlining></a>
       </StyledContentWrapper>
     </StyledSection>
   )
 }
 
-export default Articles
+export default Photos

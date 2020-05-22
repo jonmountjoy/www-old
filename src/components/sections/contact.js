@@ -14,22 +14,20 @@ const StyledSection = styled(motion.section)`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 6rem;
-  display: flex;
-  justify-content: center;
+  margin-top: 4rem;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`
   && {
     width: 100%;
-    /* Don't stretch container over the full page width */
-    max-width: 45rem;
     height: 100%;
-    display: inline-block;
-    p {
-      margin-top: 0;
-      margin-bottom: 0;
-    }
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    // p {
+    //   margin-top: 0;
+    //   margin-bottom: 0;
+    // }
     .profile {
       display: flex;
       flex-direction: column;
@@ -67,15 +65,20 @@ const Contact = ({ content }) => {
   const onScreen = useOnScreen(ref)
   const variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 } 
+    visible: { opacity: 1, y: 0 },
   }
 
   return (
-    <StyledSection id="contact" ref={ref} variants={variants} animate={onScreen ? "visible" : "hidden"}>
+    <StyledSection
+      id="contact"
+      ref={ref}
+      variants={variants}
+      animate={onScreen ? "visible" : "hidden"}
+    >
       <StyledContentWrapper>
-        <h3>{frontmatter.title}</h3>
+        <h3 style={{marginBottom:1}}>{frontmatter.title}</h3>
         <MDXRenderer>{body}</MDXRenderer>
-        <div className="profile">
+        {/* <div className="profile">
           <Img className="avatar" fluid={frontmatter.profileImage.childImageSharp.fluid} />
           <div className="details">
             <strong>{frontmatter.name}</strong>
@@ -86,8 +89,9 @@ const Contact = ({ content }) => {
               </Underlining>
             </a>
           </div>
-        </div>
-        <Social width="9rem" padding="0.5rem 1.25rem" withIcon />
+        </div> */}
+        {/* <Social width="9rem" padding="0.5rem 1.25rem" withIcon /> */}
+        <Social width="auto" padding=".3rem 1.25rem"  />
       </StyledContentWrapper>
     </StyledSection>
   )

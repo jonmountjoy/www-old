@@ -19,7 +19,7 @@ export default (ref, threshold = 0.25) => {
       }
     )
     if (element) {
-      setTimeout(() => observer.observe(element), 3500)
+      setTimeout(() => observer.observe(element), 200)
     }
     return () => {
       observer.unobserve(element)

@@ -53,7 +53,7 @@ const SplashScreen = () => {
     }, [backgroundControls, backdropControls, setState, state])
     
   return (
-    <StyledSplashScreen initial={{ opacity: 0 }} animate={backgroundControls}>
+    <StyledSplashScreen initial={{ opacity:1 }} animate={backgroundControls}>
       {/* Add splashScreen class to body (prevents scrolling during splashScreen) */}
       <Helmet bodyAttributes={{ class: !state.isIntroDone ? "splashScreen" : "" }} />
       <div className="logo-wrapper">

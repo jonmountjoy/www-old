@@ -102,9 +102,9 @@ const Hero = ({ content }) => {
   
   return (
     <StyledSection id="hero">
-      {!isIntroDone && <SplashScreen />}
+      {/* {!isIntroDone && <SplashScreen />} */}
       <StyledContentWrapper>
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={gControls}>
+        <motion.div initial={{ opacity: 0.5, y: 20 }} animate={gControls}>
           <h1 className="title">
             <div className="greetings">
               {frontmatter.greetings}

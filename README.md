@@ -2,7 +2,7 @@
 
 The source for https://www.jonmountjoy.com/.
 
-This is a Gatsby app, built using the [Portfolio Minimal](https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal) boilerplate by @konstantinmuenster.
+This is a [Gatsby app](https://www.gatsbyjs.org/), built using the [Portfolio Minimal](https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal) boilerplate by [@konstantinmuenster](https://github.com/alxshelepenok).
 
 ---
 
@@ -10,7 +10,9 @@ This is a Gatsby app, built using the [Portfolio Minimal](https://github.com/kon
 
 * gatsby develop 
 
+## Deployment
 
+This app can be deployed to Netlify without modification.  Set a `GA` environment variable if you want your GA tag to be set properly.
 
 ## License
 

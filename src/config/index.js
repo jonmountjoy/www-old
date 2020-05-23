@@ -6,7 +6,7 @@ module.exports = {
   siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
   siteLanguage: "en_US",
   siteIcon: "src/content/favicon.png", // Relative to gatsby-config file
-  googleAnalyticsId: "UA-99562635-1",
+  googleAnalyticsId: process.env["GA"],
   splashScreen: false, // Set this to true if you want to use the splash screen
 
   // You can create your own Medium feed with this rss to json converter: https://rss2json.com/

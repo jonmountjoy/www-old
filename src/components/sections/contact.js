@@ -14,7 +14,7 @@ const StyledSection = styled(motion.section)`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 4rem;
+  margin-top: 2rem;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`

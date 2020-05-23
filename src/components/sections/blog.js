@@ -74,6 +74,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
         }
       }
     }
+    .mylink {
+      padding-left: 2.5rem;
+    }
     .card {
       width: 16.25rem;
       height: 12rem;
@@ -192,7 +195,7 @@ const Blog = () => {
               </div>
             ))}
         </div>
-        <a href="https://blog.jonmountjoy.com/" target="_blank" rel="noopener" aria-label="External Link"><Underlining color={Theme.colors.secondary} hoverColor={Theme.colors.secondary}>Visit the blog ></Underlining></a>
+        <a class="mylink" href="https://blog.jonmountjoy.com/" target="_blank" rel="noopener" aria-label="External Link"><Underlining color={Theme.colors.secondary} hoverColor={Theme.colors.secondary}>Visit the blog ></Underlining></a>
       </StyledContentWrapper>
     </StyledSection>
   )

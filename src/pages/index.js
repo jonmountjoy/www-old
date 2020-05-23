@@ -19,7 +19,7 @@ const IndexPage = ({ data }) => (
     <Hero content={data.hero.edges} />
     {/* Articles is populated via Medium RSS Feed fetch */}
     <Blog />
-    <Photos />
+    <Photos content={data.photos.edges}/>
     {/* <About content={data.about.edges} /> */}
     {/* <Interests content={data.interests.edges} /> */}
     {/* <Projects content={data.projects.edges} /> */}
@@ -90,6 +90,30 @@ export const pageQuery = graphql`
               childImageSharp {
                 fixed(width: 20, height: 20, quality: 90) {
                   ...GatsbyImageSharpFixed
+                }
+              }
+            }
+          }
+        }
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+  photos: allMdx(filter: {fileAbsolutePath: {regex: "/photos/"}}) {
+    edges {
+      node {
+        body
+        exports {
+          photos {
+            title
+            subtitle
+            url
+            image {
+              childImageSharp {
+                fluid(maxWidth: 200, quality: 90) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }

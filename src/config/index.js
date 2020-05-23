@@ -2,8 +2,7 @@ module.exports = {
   author: "@jonmountjoy",
   siteTitle: "Jon Mountjoy",
   siteShortTitle: "Jon Mountjoy", // Used as logo text in header, footer, and splash screen
-  siteDescription:
-    "Jon's home on the internet",
+  siteDescription: "Jon's home on the internet",
   siteUrl: "https://gatsby-starter-portfolio-minimal.netlify.app/",
   siteLanguage: "en_US",
   siteIcon: "src/content/favicon.png", // Relative to gatsby-config file
@@ -61,14 +60,13 @@ module.exports = {
         url: "/#blogs",
       },
       {
+        name: "Projects",
+        url: "/#projects",
+      },
+      {
         name: "Photos",
         url: "/#photos",
       },
-      
-      // {
-      //   name: "Features",
-      //   url: "/#projects",
-      // },
     ],
     button: {
       name: "Contact",

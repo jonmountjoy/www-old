@@ -19,10 +19,10 @@ const IndexPage = ({ data }) => (
     <Hero content={data.hero.edges} />
     {/* Articles is populated via Medium RSS Feed fetch */}
     <Blog />
-    <Photos content={data.photos.edges}/>
     {/* <About content={data.about.edges} /> */}
     {/* <Interests content={data.interests.edges} /> */}
-    {/* <Projects content={data.projects.edges} /> */}
+    <Projects content={data.projects.edges} />
+    <Photos content={data.photos.edges}/>
     <Contact content={data.contact.edges} />
   </Layout>
 )
@@ -133,16 +133,7 @@ export const pageQuery = graphql`
           title
           category
           emoji
-          external
-          github
-          screenshot {
-            childImageSharp {
-              fluid(maxWidth: 400, quality: 90) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          tags
+          svimage { publicURL }
           position
           buttonVisible
           buttonUrl

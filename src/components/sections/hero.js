@@ -63,7 +63,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       background-color: "red";
       width: 100%;
       max-width: 18rem;
-      margin-top: 4rem;
+      margin-top: 1rem;
       margin-left: 0;
       @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
         margin-left: 2rem;
@@ -153,11 +153,11 @@ const Hero = ({ content }) => {
           />
         </div>
       </StyledContentWrapper>
-      <StyledContentWrapper>
+      {/* <StyledContentWrapper>
         <motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
           <Social fontSize=".95rem" padding=".3rem 1.25rem" width="auto" />
         </motion.div>
-      </StyledContentWrapper>
+      </StyledContentWrapper> */}
     </StyledSection>
   )
 }

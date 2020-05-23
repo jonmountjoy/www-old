@@ -108,7 +108,7 @@ const StyledProject = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   flex-shrink: 0;
   padding-right: 2.5rem;
   max-width: 20rem;
@@ -121,7 +121,7 @@ const StyledProject = styled(motion.div)`
     justify-content: space-between;
     flex-shrink: 1;
     max-width: 62.5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 2rem;
     padding-right: 0;
     /* Positioning of image and details should vary */
     flex-direction: ${({ position }) =>
@@ -149,16 +149,16 @@ const StyledProject = styled(motion.div)`
       line-height: 1.625rem;
       font-weight: 700;
     }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-      line-height: 1.2rem;
-      span {
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
+    // .tags {
+    //   display: flex;
+    //   flex-wrap: wrap;
+    //   margin-top: 1.5rem;
+    //   line-height: 1.2rem;
+    //   span {
+    //     margin-right: 1rem;
+    //     margin-bottom: 1rem;
+    //   }
+    // }
     .links {
       display: flex;
       justify-content: flex-start;
@@ -193,6 +193,9 @@ const StyledProject = styled(motion.div)`
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       height: 18.75rem;
     }
+  }
+  a {
+    color: red
   }
 `
 
@@ -285,7 +288,7 @@ const Projects = ({ content }) => {
                     </div>
                     <div className="title">{frontmatter.title}</div>
                     <MDXRenderer>{body}</MDXRenderer>
-                    <div className="tags">
+                    {/* <div className="tags">
                       {frontmatter.tags.map(tag => (
                         <Underlining
                           key={tag}
@@ -295,7 +298,7 @@ const Projects = ({ content }) => {
                           {tag}
                         </Underlining>
                       ))}
-                    </div>
+                    </div> */}
                     <div className="links">
                       {frontmatter.github && (
                         <a
@@ -323,10 +326,13 @@ const Projects = ({ content }) => {
                   <VisibilitySensor
                     onChange={() => setVisibleProject(frontmatter.position)}
                   >
-                    <Img
+                    <>
+                    {frontmatter.svimage && <img className="screenshot" src={frontmatter.svimage.publicURL}/>}
+                    {frontmatter.screenshot && !frontmatter.svimage && <Img
                       className="screenshot"
                       fluid={frontmatter.screenshot.childImageSharp.fluid}
-                    />
+                    />}
+                    </>
                   </VisibilitySensor>
                 </StyledProject>
               </VisibilitySensor>

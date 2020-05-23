@@ -41,7 +41,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       }
     }
     .indent {
-      padding-left: 2.5rem;
+      padding-left: 0rem;
     }
     .articles {
       display: flex;

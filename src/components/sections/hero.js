@@ -7,9 +7,6 @@ import { motion, useAnimation } from "framer-motion"
 
 import Context from "../../context/"
 import ContentWrapper from "../../styles/ContentWrapper"
-import Underlining from "../../styles/Underlining"
-import Social from "../social"
-import SplashScreen from "../splashScreen"
 import Theme from "../../styles/Theme"
 
 const StyledSection = styled.section`
@@ -81,8 +78,6 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
   }
 `
-
-const AnimatedUnderlining = motion.custom(Underlining)
 
 const Hero = ({ content }) => {
   const { frontmatter, body } = content[0].node

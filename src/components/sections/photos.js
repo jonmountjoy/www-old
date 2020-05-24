@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useEffect, useContext } from "react"
 import styled from "styled-components"
 import SkeletonLoader from "tiny-skeleton-loader-react"
 import { motion, useAnimation } from "framer-motion"
@@ -7,12 +7,9 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import Context from "../../context"
 import config from "../../config"
-import { parseDate } from "../../utils"
 import ContentWrapper from "../../styles/ContentWrapper"
 import Underlining from "../../styles/Underlining"
 import Theme from "../../styles/Theme"
-
-const { mediumRssFeed, shownArticles } = config
 
 const StyledSection = motion.custom(styled.section`
   width: 100%;
@@ -134,10 +131,10 @@ const StyledContentWrapper = styled(ContentWrapper)`
 `
 
 const Photos = ({ content }) => {
-  const { exports, frontmatter, body } = content[0].node
+  const { exports, body } = content[0].node
   const { photos } = exports
 
-  const { isIntroDone } = useContext(Context).state
+  // const { isIntroDone } = useContext(Context).state
   const articlesControls = useAnimation()
 
   useEffect(() => {
@@ -158,8 +155,8 @@ const Photos = ({ content }) => {
     >
       <StyledContentWrapper>
         <h3 className="section-title">Photos</h3>
-        <div class="indent">
-        <MDXRenderer>{body}</MDXRenderer>
+        <div className="section-title">
+          <MDXRenderer>{body}</MDXRenderer>
         </div>
         <div className="articles">
           {photos
@@ -203,20 +200,22 @@ const Photos = ({ content }) => {
                 </div>
               ))}
         </div>
-        <a
-          href="https://photos.jonmountjoy.com/"
-          target="_blank"
-          rel="noopener"
-          aria-label="External Link"
-          class="indent"
-        >
-          <Underlining
-            color={Theme.colors.secondary}
-            hoverColor={Theme.colors.secondary}
+        <div className="section-title">
+          <a
+            href="https://photos.jonmountjoy.com/"
+            target="_blank"
+            rel="noopener"
+            aria-label="External Link"
+            class="indent"
           >
-            Visit the photo galleries >
-          </Underlining>
-        </a>
+            <Underlining
+              color={Theme.colors.secondary}
+              hoverColor={Theme.colors.secondary}
+            >
+              Visit the photo galleries >
+            </Underlining>
+          </a>
+        </div>
       </StyledContentWrapper>
     </StyledSection>
   )

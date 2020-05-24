@@ -15,7 +15,7 @@ const StyledSection = motion.custom(styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 2rem;
+  margin-top: 1rem;
 `)
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -160,14 +160,14 @@ const Photos = ({ content }) => {
         </div>
         <div className="articles">
           {photos
-            ? photos.map(item => (
+            ? photos.map((item,index) => (
                 <a
                   href={item.url}
                   target="_blank"
                   rel="nofollow noopener noreferrer"
                   title={item.title}
                   aria-label={item.url}
-                  key={item.url}
+                  key={`${index}`}
                 >
                   <div className="card">
                     <BackgroundImage
@@ -206,7 +206,7 @@ const Photos = ({ content }) => {
             target="_blank"
             rel="noopener"
             aria-label="External Link"
-            class="indent"
+            className ="indent"
           >
             <Underlining
               color={Theme.colors.secondary}

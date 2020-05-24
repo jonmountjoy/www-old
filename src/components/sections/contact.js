@@ -24,6 +24,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
     flex-direction: column;
     display: flex;
     justify-content: center;
+    margin-bottom: 1rem;
     // p {
     //   margin-top: 0;
     //   margin-bottom: 0;

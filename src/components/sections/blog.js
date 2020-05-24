@@ -16,6 +16,7 @@ const StyledSection = motion.custom(styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
+
 `)
 
 const StyledContentWrapper = styled(ContentWrapper)`
@@ -30,6 +31,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
     }
     .section-title {
       padding-right: 2.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
       padding-left: 2.5rem;
       @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
         padding-right: 0;
@@ -171,6 +174,7 @@ const Blog = () => {
                       </Underlining>
                     </span>
                     <h4 className="title">{item.title}</h4>
+                    <span className="date">{item.description}</span>
                     <span className="date">{parseDate(item.pubDate)}</span>
                   </div>
                 </a>
@@ -195,7 +199,7 @@ const Blog = () => {
               </div>
             ))}
         </div>
-        <a class="mylink" href="https://blog.jonmountjoy.com/" target="_blank" rel="noopener" aria-label="External Link"><Underlining color={Theme.colors.secondary} hoverColor={Theme.colors.secondary}>Visit the blog ></Underlining></a>
+        <a className="mylink" href="https://blog.jonmountjoy.com/" target="_blank" rel="noopener" aria-label="External Link"><Underlining color={Theme.colors.secondary} hoverColor={Theme.colors.secondary}>Visit the blog ></Underlining></a>
       </StyledContentWrapper>
     </StyledSection>
   )

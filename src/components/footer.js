@@ -12,7 +12,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   height: ${({ theme }) => theme.footerHeight};
   background: ${({ theme }) => theme.colors.primary};
-  margin-top: 10rem;
+  margin-top: 5rem;
 `
 
 const StyledContentWrapper = styled(ContentWrapper)`

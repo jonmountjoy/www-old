@@ -16,8 +16,7 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  background: red;
-  margin-top: 4rem;
+  margin-top: 2rem;
   .cta-btn {
     display: block;
     text-align: center;
@@ -45,6 +44,8 @@ const StyledContentWrapper = styled(ContentWrapper)`
     .section-title {
       padding-right: 2.5rem;
       padding-left: 2.5rem;
+      margin-bottom: 1rem;
+      margin-top: 1rem;
       @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         padding-right: 0;
         padding-left: 0;
@@ -54,7 +55,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       display: flex;
       flex-direction: row;
       margin-top: -2.5rem;
-      padding: 2.5rem 2.5rem; 
+      padding: 1rem 1rem; 
       overflow-x: scroll;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;

@@ -16,7 +16,8 @@ const StyledSection = styled.section`
   width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.background};
-  margin-top: 6rem;
+  background: red;
+  margin-top: 4rem;
   .cta-btn {
     display: block;
     text-align: center;
@@ -53,7 +54,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
       display: flex;
       flex-direction: row;
       margin-top: -2.5rem;
-      padding: 2.5rem 2.5rem;
+      padding: 2.5rem 2.5rem; 
       overflow-x: scroll;
       overflow-y: hidden;
       -webkit-overflow-scrolling: touch;
@@ -244,14 +245,6 @@ const Projects = ({ content }) => {
     visible: { opacity: 1 },
   }
 
-  // Required for animating the button
-  const bRef = useRef()
-  const bOnScreen = useOnScreen(bRef)
-  const bVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  }
-
   return (
     <StyledSection id="projects">
       <StyledContentWrapper>
@@ -340,22 +333,6 @@ const Projects = ({ content }) => {
           })}
         </div>
       </StyledContentWrapper>
-      {sectionDetails.frontmatter.buttonVisible === "true" && (
-        <motion.a
-        ref={bRef}
-        variants={bVariants}
-        animate={bOnScreen ? "visible" : "hidden"}
-        className="cta-btn"
-        href={sectionDetails.frontmatter.buttonUrl}
-        target="_blank"
-        rel="nofollow noopener noreferrer"
-        aria-label="External Link"
-      >
-        <Button type="button" textAlign="center" color="primary" center>
-          {sectionDetails.frontmatter.buttonText}
-        </Button>
-      </motion.a>
-      )}
     </StyledSection>
   )
 }

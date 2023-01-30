@@ -52,11 +52,7 @@ module.exports = {
   navLinks: {
     menu: [
       {
-        name: "About Me",
-        url: "/#hero",
-      },
-      {
-        name: "Blogs",
+        name: "Blog",
         url: "/#blogs",
       },
       {
